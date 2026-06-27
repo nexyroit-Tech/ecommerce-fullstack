@@ -1,0 +1,116 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "ShopNow Admin",
+      "email": "admin@shopnow.com",
+      "password": "$2a$10$1U7lOmR0arcV8rdBUyAo8.VuKS5VAoyCmcFCmpEQI0Kto5MnDVq9y",
+      "role": "admin"
+    },
+    {
+      "id": "u2",
+      "name": "Jane Doe",
+      "email": "user@shopnow.com",
+      "password": "$2a$10$IpuGKoXw8aIDCmIQuxYtiOJAqOtoEQzgzMNVrkDX2Kw7Z8dvt1oQm",
+      "role": "user"
+    },
+    {
+      "id": "u_1782493033731",
+      "name": "muneeb",
+      "email": "mmuneebanwar@gmail.com",
+      "password": "$2a$10$yoATzRL4yfJvA5IpvCeBOeLuiPia0KkF3Foq5.2dj557a4qY0NFTi",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "title": "Nebula Premium Hoodie",
+      "price": 59.99,
+      "description": "A high-fidelity minimalist hoodie crafted from organic heavyweight cotton. Features custom glassmorphism cord toggles and a deep double-lined hood for premium comfort.",
+      "category": "Apparel",
+      "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&auto=format&fit=crop&q=80",
+      "rating": 4.8,
+      "stock": 15
+    },
+    {
+      "id": "p2",
+      "title": "Pulse Wireless Headset",
+      "price": 129.99,
+      "description": "Active noise-cancelling headphones featuring spatial audio, custom 40mm dynamic drivers, and a sleek brushed metallic finish with memory-foam ear cushions.",
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+      "rating": 4.7,
+      "stock": 10
+    },
+    {
+      "id": "p3",
+      "title": "Horizon Smart Watch",
+      "price": 199.99,
+      "description": "Track your health metrics in real-time with an OLED edge-to-edge display, 7-day battery life, and custom water-resistant leather wristbands.",
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+      "rating": 4.9,
+      "stock": 8
+    },
+    {
+      "id": "p4",
+      "title": "Quantum Leather Backpack",
+      "price": 89.99,
+      "description": "Handcrafted top-grain leather bag with integrated 16-inch laptop sleeve, secret security pocket, and magnetic quick-release metal clasps.",
+      "category": "Accessories",
+      "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+      "rating": 4.6,
+      "stock": 11
+    },
+    {
+      "id": "p5",
+      "title": "Apex Mechanical Keyboard",
+      "price": 149.99,
+      "description": "Custom mechanical keyboard with lubricated linear switches, dynamic double-shot PBT keycaps, and full RGB underglow customizable animations.",
+      "category": "Electronics",
+      "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80",
+      "rating": 4.5,
+      "stock": 5
+    },
+    {
+      "id": "p6",
+      "title": "Vanguard Unisex Sneakers",
+      "price": 119.99,
+      "description": "Eco-friendly mesh upper design with responsive foam cushioning. Engineered for maximum shock absorption and high-speed energy return.",
+      "category": "Apparel",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80",
+      "rating": 4.4,
+      "stock": 20
+    }
+  ],
+  "orders": [
+    {
+      "id": "order_246006",
+      "userId": "u_1782493033731",
+      "userEmail": "mmuneebanwar@gmail.com",
+      "userName": "muneeb",
+      "items": [
+        {
+          "productId": "p4",
+          "title": "Quantum Leather Backpack",
+          "price": 89.99,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "total": 89.99,
+      "shippingDetails": {
+        "name": "Mun33b Anwar",
+        "address": "Islamabad",
+        "city": "Islamabad",
+        "zip": "m",
+        "country": "Pakistan"
+      },
+      "paymentStatus": "paid",
+      "stripeTransactionId": "ch_3pe0hjt71fj",
+      "status": "processing",
+      "createdAt": "2026-06-26T16:59:36.701Z"
+    }
+  ]
+}
