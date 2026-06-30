@@ -339,9 +339,13 @@ app.post('/api/payment/create-checkout-session', authenticateJWT, (req, res) => 
 });
 
 // Start express server
-app.listen(PORT, () => {
-  console.log(`================================================`);
-  console.log(`ShopNow Backend Server running on port ${PORT}`);
-  console.log(`Database is connected successfully.`);
-  console.log(`================================================`);
-});
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`================================================`);
+    console.log(`ShopNow Backend Server running on port ${PORT}`);
+    console.log(`Database is connected successfully.`);
+    console.log(`================================================`);
+  });
+}
+
+export default app;

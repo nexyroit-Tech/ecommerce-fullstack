@@ -5,7 +5,17 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dbPath = path.join(__dirname, 'data', 'db.json');
+
+const isVercel = process.env.VERCEL || process.env.NODE_ENV === 'production';
+let dbPath;
+
+if (isVercel) {
+  dbPath = path.join('/tmp', 'db.json');
+} else {
+  const cwd = process.cwd();
+  const baseDir = cwd.endsWith('server') ? cwd : path.join(cwd, 'server');
+  dbPath = path.join(baseDir, 'data', 'db.json');
+}
 
 // Ensure data directory exists
 const dir = path.dirname(dbPath);
@@ -13,9 +23,28 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
-// Initial structure if file doesn't exist
-if (!fs.existsSync(dbPath)) {
-  fs.writeFileSync(dbPath, JSON.stringify({ users: [], products: [], orders: [] }, null, 2));
+// Initialize database file
+if (isVercel) {
+  if (!fs.existsSync(dbPath)) {
+    // Vercel serverless environment: copy db.json template from the bundled folder to /tmp
+    const templatePath = path.join(process.cwd(), 'server', 'data', 'db.json');
+    if (fs.existsSync(templatePath)) {
+      try {
+        fs.copyFileSync(templatePath, dbPath);
+        console.log('Database initialized: Copied template db.json to /tmp/db.json.');
+      } catch (err) {
+        console.error('Error copying template db.json to /tmp/db.json:', err);
+        fs.writeFileSync(dbPath, JSON.stringify({ users: [], products: [], orders: [] }, null, 2));
+      }
+    } else {
+      console.warn('Template db.json not found at ' + templatePath + ', creating empty database.');
+      fs.writeFileSync(dbPath, JSON.stringify({ users: [], products: [], orders: [] }, null, 2));
+    }
+  }
+} else {
+  if (!fs.existsSync(dbPath)) {
+    fs.writeFileSync(dbPath, JSON.stringify({ users: [], products: [], orders: [] }, null, 2));
+  }
 }
 
 // Read database
